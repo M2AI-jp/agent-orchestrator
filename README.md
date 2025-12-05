@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Agent Orchestrator
+
+複数の特化型 AI エージェントを組み合わせて複雑なタスクを実行するマルチエージェント AI プラットフォーム。
+
+## Demo
+
+**Production URL**: https://agent-orchestrator-m2ai-jps-projects.vercel.app
+
+## Features
+
+- **4種類の AI エージェント**:
+  - Research Agent: 情報収集・調査
+  - Summary Agent: テキスト要約
+  - FactCheck Agent: 事実確認・検証
+  - Writer Agent: 文章作成
+
+- **パイプライン実行**: エージェントを順番に実行し、前のエージェントの出力を次に渡す
+- **リアルタイム状態表示**: 実行状態（pending/processing/done/error）を視覚的に表示
+- **チャット UI**: 会話形式で結果を表示
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **AI SDK**: Vercel AI SDK + OpenAI
+- **Styling**: Tailwind CSS 4
+- **Runtime**: Edge Runtime
 
 ## Getting Started
 
-First, run the development server:
-
+1. 依存関係をインストール:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 環境変数を設定:
+```bash
+cp .env.example .env.local
+# .env.local に OpenAI API キーを設定
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. 開発サーバーを起動:
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. http://localhost:3000 を開く
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+1. 使用したいエージェントをクリックして選択（複数選択可、選択順 = 実行順）
+2. メッセージを入力
+3. 「実行」をクリック
+4. 各エージェントが順番に処理し、結果がチャットに表示される
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
